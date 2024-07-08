@@ -17,9 +17,15 @@ app.post("/",async(req,res)=>{
 })
 
 app.get("/getData",(req,res)=>{
-    Users.find()
+    Users.find({},"name")
     .then(users=> res.json(users))
     .catch(err=> res.json(err))
 })
 
+app.get("/fetchData/:id",async(req,res)=>{
+    id=req.params.id
+    Users.find({"_id":id})
+    .then(users=> res.json(users))
+    .catch(err=> res.json(err))
+})
 app.listen(4000);

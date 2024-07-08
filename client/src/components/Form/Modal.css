@@ -33,6 +33,10 @@ body.active-modal {
     border-radius: 3px;
     max-width: 600px;
     min-width: 300px;
+    color: #00ec00;
+    font-weight: 600px;
+    font-size: large;
+    text-align: center;
 }
 
 .close-modal {
