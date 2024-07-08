@@ -64,7 +64,7 @@ const Navbar = () => {
     //     setErrorMsg("")
     //     setIsSuccess(true)
     // }
-
+    const [valid, setValid] = useState(true)
     const [modal, setModal] = useState(false);
 
     const toggleModal = () => {
@@ -94,7 +94,7 @@ const Navbar = () => {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [pin, setPin] = useState("");
-    const [pic, setPic] = useState('')
+    const [pic, setPic] = useState("")
 
     const collectData = async (e) => {
         e.preventDefault();
@@ -186,6 +186,7 @@ const Navbar = () => {
 
                 <div className="row">
                     <h4>Upload Image</h4>
+                    {!valid && <p className='valid'>Max Size is 1MB & Type jpg/jpeg/png</p>}
                     <div className="input-group input-group-icon">
                         <input
                             type='file'
@@ -193,7 +194,20 @@ const Navbar = () => {
                             id='image'
                             required
                             name='Upload image'
-                            onChange={convertToBase64}
+                            onChange={(e) => {
+                                if (
+                                    e.target.files[0].size < 1048576 &&
+                                    (e.target.files[0].type === "image/jpeg" ||
+                                        e.target.files[0].type === "image/jpg" ||
+                                        e.target.files[0].type === "image/png")
+                                ) {
+                                    setValid(true);
+                                    convertToBase64(e);
+                                } else {
+                                    setValid(false);
+                                }
+                            }}
+
                         />
                     </div>
                 </div>
@@ -205,9 +219,6 @@ const Navbar = () => {
                         <div onClick={toggleModal} className="overlay"></div>
                         <div className="modal-content">
                             <h5>Form Submitted Successfully</h5>
-                            {/* <button className="close-modal" onClick={toggleModal}>
-                                <FaWindowClose />
-                            </button> */}
                         </div>
                     </div>
                 )}
