@@ -140,7 +140,7 @@ const Navbar = () => {
                 <div className="row">
                     <h4>Full Name</h4>
                     <div className="input-group input-group-icon">
-                        <input type="text" placeholder="" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder="" value={name} required onChange={(e) => setName(e.target.value)} />
                     </div>
 
                 </div>
@@ -148,7 +148,7 @@ const Navbar = () => {
                     <h4>Date of Birth</h4>
                     <div className="input-group">
                         <div className="input-group input-group-icon">
-                            <input type="date" placeholder="" value={dob} onChange={(e) => setDob(e.target.value)} />
+                            <input type="date" placeholder="" value={dob} required onChange={(e) => setDob(e.target.value)} />
                         </div>
                     </div>
 
@@ -156,30 +156,30 @@ const Navbar = () => {
                 <div className="row">
                     <h4>Address</h4>
                     <div className="input-group input-group-icon">
-                        <input type="text" placeholder="Address Line 1" value={ad} onChange={(e) => setAd(e.target.value)} />
+                        <input type="text" placeholder="Address Line 1" value={ad} required onChange={(e) => setAd(e.target.value)} />
                     </div>
                     <div className="input-group input-group-icon">
-                        <input type="text" placeholder="Address Line 2" value={add} onChange={(e) => setAdd(e.target.value)} />
+                        <input type="text" placeholder="Address Line 2" value={add} required onChange={(e) => setAdd(e.target.value)} />
                     </div>
                 </div>
                 <div className="row">
                     <h4>City</h4>
                     <div className="input-group input-group-icon">
-                        <input type="text" placeholder="" value={city} onChange={(e) => setCity(e.target.value)} />
+                        <input type="text" placeholder="" value={city} required onChange={(e) => setCity(e.target.value)} />
                     </div>
 
                 </div>
                 <div className="row">
                     <h4>State</h4>
                     <div className="input-group input-group-icon">
-                        <input type="text" placeholder=" " value={state} onChange={(e) => setState(e.target.value)} />
+                        <input type="text" placeholder=" " value={state} required onChange={(e) => setState(e.target.value)} />
                     </div>
 
                 </div>
                 <div className="row">
                     <h4>Pin Code</h4>
                     <div className="input-group input-group-icon">
-                        <input type="text" placeholder=" " value={pin} onChange={(e) => setPin(e.target.value)} />
+                        <input type="text" placeholder=" " required value={pin} onChange={(e) => setPin(e.target.value)} />
                     </div>
 
                 </div>
@@ -191,6 +191,7 @@ const Navbar = () => {
                             type='file'
                             accept='.jpg, .png, .jpeg'
                             id='image'
+                            required
                             name='Upload image'
                             onChange={convertToBase64}
                         />

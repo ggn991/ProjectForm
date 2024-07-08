@@ -42,3 +42,11 @@
     font-weight:700;
     padding: 5px 0px;
 }
+
+.contents{
+    padding: 2px;
+    text-align: left;
+    padding-left: auto;
+    padding-right: auto;
+    width: fit-content
+}
