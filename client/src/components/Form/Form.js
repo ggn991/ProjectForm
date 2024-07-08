@@ -9,61 +9,6 @@ import e from 'cors';
 
 
 const Navbar = () => {
-    // const [selectedFile, setselectedFile] = useState();
-    // const [errorMsg, setErrorMsg] = useState(false);
-    // const [isSuccess, setIsSuccess] = useState(false);
-
-    // const handleFileChange = (event) => {
-    //     event.preventDefault();
-    //     setIsSuccess(false)
-    //     setErrorMsg(false)
-    //     setselectedFile()
-    //     if (event.target.files.length>0){
-    //         setselectedFile(event.target.files[0]);
-    //     }
-    //     const MAX_FILE_SIZE=1024;
-
-    //     if (!selectedFile){
-    //         setErrorMsg("Please Choose a file");
-    //         setIsSuccess(false);
-    //         return;
-    //     }
-
-    //     const fileSizeInKB = selectedFile.size / 1024;
-
-    //     if (fileSizeInKB>MAX_FILE_SIZE){
-    //         setErrorMsg("File size is greater than maximum limit");
-    //         setIsSuccess(false);
-    //         return;
-    //     }
-
-
-    //     setErrorMsg("")
-    //     setIsSuccess(true)
-
-    // }
-
-    // const validateSelectedFile = (e) => { 
-    //     e.preventDefault();
-    //     const MAX_FILE_SIZE=1024;
-
-    //     if (!selectedFile){
-    //         setErrorMsg("Please Choose a file");
-    //         setIsSuccess(false);
-    //         return;
-    //     }
-
-    //     const fileSizeInKB = selectedFile.size / 1024;
-
-    //     if (fileSizeInKB>MAX_FILE_SIZE){
-    //         setErrorMsg("File size is greater than maximum limit");
-    //         setIsSuccess(false);
-    //         return;
-    //     }
-
-    //     setErrorMsg("")
-    //     setIsSuccess(true)
-    // }
     const [valid, setValid] = useState(true)
     const [modal, setModal] = useState(false);
 
