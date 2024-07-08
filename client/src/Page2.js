@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar/Navbar"
 import axios from 'axios'
 import './Page2.css'
-import { set } from "mongoose"
 
 const Page2 = () => {
     const [users, setUsers] = useState([])
