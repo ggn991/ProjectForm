@@ -44,7 +44,7 @@ const Navbar = () => {
     const collectData = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:4000/', {
+            const response = await fetch('https://projectform-dqcx.onrender.com/', {
                 method: 'post',
                 body: JSON.stringify({ name, dob, ad, add, city, state, pin, pic }),
                 headers: {

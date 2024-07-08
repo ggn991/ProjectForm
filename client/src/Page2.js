@@ -7,7 +7,7 @@ const Page2 = () => {
     const [users, setUsers] = useState([])
     useEffect(() => {
 
-        axios.get('http://localhost:4000/getData')
+        axios.get('https://projectform-dqcx.onrender.com/getData')
             .then(users => setUsers(users.data))
             .catch(err => console.log(err))
 
@@ -23,7 +23,7 @@ const Page2 = () => {
         setModal(!modal);
         setId(i)
         try {
-            const response = await axios.get(`http://localhost:4000/fetchData/${i}`)
+            const response = await axios.get(`https://projectform-dqcx.onrender.com/fetchData/${i}`)
             setData(response.data)
             console.log(data)
         }
