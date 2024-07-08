@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Form.css'
+import './Modal.css'
+import e from 'cors';
 
 
 
@@ -63,6 +65,26 @@ const Navbar = () => {
     //     setIsSuccess(true)
     // }
 
+    const [modal, setModal] = useState(false);
+
+    const toggleModal = () => {
+        setModal(!modal);
+        setName("");
+        setDob("");
+        setAd("");
+        setAdd("");
+        setCity("");
+        setState("");
+        setPin("");
+        setPic("");
+    };
+
+    if (modal) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
 
 
     const [name, setName] = useState("");
@@ -86,15 +108,8 @@ const Navbar = () => {
             });
             const result = await response.json();
             console.log(result);
-            alert("Submitted Successfully")
-            setName("")
-            setDob("")
-            setAd("")
-            setAdd("")
-            setCity("")
-            setState("")
-            setPin("")
-            setPic("")
+            toggleModal();
+
             // e.target.reset()
         }
         catch (error) {
@@ -103,17 +118,17 @@ const Navbar = () => {
         }
     }
 
-    function convertToBase64(e){
+    function convertToBase64(e) {
         const reader = new FileReader()
-    
+
         reader.readAsDataURL(e.target.files[0]);
-    
+
         reader.onload = () => {
-          console.log(reader.result)
-          setPic(reader.result)
-          console.log(reader.result)
+            console.log(reader.result)
+            setPic(reader.result)
+            console.log(reader.result)
         }
-      }
+    }
 
 
 
@@ -121,7 +136,7 @@ const Navbar = () => {
 
     return (
         <div className="container">
-            <form onSubmit={collectData}>
+            <form onSubmit={(e) => { collectData(e) }}>
                 <div className="row">
                     <h4>Full Name</h4>
                     <div className="input-group input-group-icon">
@@ -168,27 +183,33 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                {/* <input
-                    type="file"
-                    label="Image"
-                    name="myFile"
-                    accept=".jpeg, .png, .jpg"
-                    onChange={(e) => handleFileUpload(e)}
-                /> */}
 
-                <input
-                    type='file'
-                    accept='.jpg, .png, .jpeg'
-                    id='image'
-                    name='Upload image'
-                    onChange={convertToBase64}
-                />
+                <div className="row">
+                    <h4>Upload Image</h4>
+                    <div className="input-group input-group-icon">
+                        <input
+                            type='file'
+                            accept='.jpg, .png, .jpeg'
+                            id='image'
+                            name='Upload image'
+                            onChange={convertToBase64}
+                        />
+                    </div>
+                </div>
 
+                <div className='row'><input className="btn" type='submit' /></div>
 
-                <input className="btn" type='submit' />
-
-
-
+                {modal && (
+                    <div className="modal">
+                        <div onClick={toggleModal} className="overlay"></div>
+                        <div className="modal-content">
+                            <h5>Form Submitted Successfully</h5>
+                            <button className="close-modal" onClick={toggleModal}>
+                                CLOSE
+                            </button>
+                        </div>
+                    </div>
+                )}
 
             </form>
         </div>
