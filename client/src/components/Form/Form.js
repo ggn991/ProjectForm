@@ -37,6 +37,7 @@ const Navbar = () => {
         if (valid) {
 
             try {
+                toggleModal();
                 const response = await fetch('https://projectform-dqcx.onrender.com/', {
                     method: 'post',
                     body: JSON.stringify({ name, dob, ad, add, city, state, pin, pic }),
@@ -46,7 +47,6 @@ const Navbar = () => {
                 });
                 const result = await response.json();
                 console.log(result);
-                toggleModal();
             }
             catch (error) {
                 console.error(error);
