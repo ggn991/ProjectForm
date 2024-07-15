@@ -16,6 +16,7 @@ const Page2 = () => {
     const [modal, setModal] = useState(false);
     const [id, setId] = useState("");
     // const [age, setAge] = useState("");
+    
 
     const [data, setData] = useState([])
 
@@ -90,7 +91,8 @@ const Page2 = () => {
                     users.map((user, pos) => {
                         return (
                             <div className="contents"><p onClick={() => toggleModal(user._id)}>{pos + 1} {user.name}</p>
-                            <p > <img src={user.pic}  className="imggg"/> </p></div>
+                            {/* <p > <img src={user.pic}  className="imggg"/> </p> */}
+                            </div>
                             
 
                         )
