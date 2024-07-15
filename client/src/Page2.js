@@ -90,7 +90,7 @@ const Page2 = () => {
                     users.map((user, pos) => {
                         return (
                             <div className="contents"><p onClick={() => toggleModal(user._id)}>{pos + 1} {user.name}</p>
-                            <p className="imggg"> <image src={user.pic} /> </p></div>
+                            <p className="imggg"> <img src={user.pic} /> </p></div>
                             
 
                         )
