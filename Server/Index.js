@@ -17,7 +17,7 @@ app.post("/",async(req,res)=>{
 })
 
 app.get("/getData",(req,res)=>{
-    Users.find({},"name","pic")
+    Users.find({},"name pic")
     .then(users=> res.json(users))
     .catch(err=> res.json(err))
 })
