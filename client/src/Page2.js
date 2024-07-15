@@ -15,7 +15,7 @@ const Page2 = () => {
 
     const [modal, setModal] = useState(false);
     const [id, setId] = useState("");
-    const [age, setAge] = useState("");
+    // const [age, setAge] = useState("");
 
     const [data, setData] = useState([])
 
@@ -27,24 +27,10 @@ const Page2 = () => {
             setData(response.data)
             console.log(data)
         }
-
-
-
         catch (err) {
             console.log(err)
         }
     };
-
-
-    // useEffect(() => {
-    //     if (data) {
-    //         setData(data);
-    //         const a=data[0].date
-    //         console.log(a)
-    //     }
-
-
-    // }, [data]);
 
     if (modal) {
         document.body.classList.add('active-modal')
@@ -86,7 +72,6 @@ const Page2 = () => {
         else
             return <p className="text2">Age: {yearDiff}</p>
 
-        // document.getElementById("currentAge").innerHTML =
         //     "Your current Age is " + yearDiff + " years "
         //     + monthDiff + " months " + dateDiff + " days";
 
@@ -104,7 +89,9 @@ const Page2 = () => {
                 {
                     users.map((user, pos) => {
                         return (
-                            <div className="contents"><p onClick={() => toggleModal(user._id)}>{pos + 1} {user.name}</p></div>
+                            <div className="contents"><p onClick={() => toggleModal(user._id)}>{pos + 1} {user.name}</p>
+                            <p className="imggg"> <image src={user.pic} /> </p></div>
+                            
 
                         )
                     })
@@ -116,8 +103,6 @@ const Page2 = () => {
                 <div className="modal">
                     <div onClick={toggleModal} className="overlay"></div>
                     <div className="modal-content">
-                        {/* <h5>Form Submitted Successfully</h5> */}
-                        {/* <p>{id}</p> */}
                         {data.length > 0 && <img className="image" src={data[0].pic} />}
                         {data.length > 0 && <p className="text">{data[0].name}</p>}
                         <div className="divv1">

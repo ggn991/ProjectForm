@@ -12,7 +12,7 @@
 }
 
 .image {
-    width: 400px;
+    /* width: 400px; */
     height: 400px;
 }
 
@@ -49,4 +49,9 @@
     padding-left: auto;
     padding-right: auto;
     width: fit-content
+}
+
+.imggg{
+    width: 40px;
+    height: 40px;
 }
